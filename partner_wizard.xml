@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <wizard 
+		id="res_partner_import_product" 
+		model="res.partner" 
+		name="res.partner.wizard.import.product" 
+		string="Importa Catalogo Articoli"
+	/>
+
+       
+    </data>
+</openerp>

@@ -1,0 +1,56 @@
+# -*- encoding: utf-8 -*-
+
+import math
+
+from osv import fields,osv
+import tools
+import ir
+import pooler
+from tools.translate import _
+
+class res_partner(osv.osv):
+    _inherit='res.partner'
+    _columns = {         
+                'parimpproduct': fields.one2many('par.imp.product', 'supplier_id', 'supplier_id'),
+                }
+                
+    def import_product(self, cr, uid, ids,context={}):
+	pass
+        return 
+
+res_partner()
+
+##def _sel_func_old(self, cr, uid, context={}):
+##	obj = self.pool.get('ir.model.fields')
+####	search(cr,uid,[('model','=','product.product')])
+##	ids = obj.search(cr,uid,[('model','=','product.product')])
+####	res = obj.read(cr, uid, ids, [’name’, ’field_description’], context)
+##	res = obj.read(cr, uid, ids, ['id', 'name'], context)
+##	res = [(r[’id’], r[’name’]) for r in res]
+##	return res
+
+def _elenco_campi(self, cr, uid, context={}):
+    obj = self.pool.get('ir.model.fields')
+    ids = obj.search(cr, uid, [('model', '=', 'product.product')])
+    res = obj.read(cr, uid, ids, ['name','name'], context)
+    obj2 = self.pool.get('ir.model.fields')
+    ids2 = obj2.search(cr, uid, [('model', '=', 'product.template')])
+    res2 = obj2.read(cr, uid, ids2, ['name','name'], context)    
+    return [(r['name'], r['name']) for r in res] + [(r2['name'], r2['name']) for r2 in res2]
+
+
+class par_imp_product(osv.osv):
+    _description ='Parameter for import Product'
+    _name = 'par.imp.product'
+    _order = 'id'
+    
+
+    _columns = {
+        'supplier_id': fields.many2one('res.partner', 'Partner', ondelete='set null', select=True, help="Parameter for Import Export Catalog"),
+        'column_name_product': fields.selection( _elenco_campi,'Campo Articolo',size=150),        
+        'column_number_file_import': fields.char('Numero Colonna', size=10),
+        'eval_function': fields.char('Funzione di Costruzione', size=128),
+    }
+ 
+ 
+par_imp_product()

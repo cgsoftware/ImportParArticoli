@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+  
+        <record model="ir.ui.view" id="res_partner_import_form">
+            <field name="name">res.partner.import.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+	                <notebook position="inside">        
+				  <page string="Import Catalogo">
+	                		<field name="parimpproduct" nolabel="1" mode="tree,form" string="Campi Import">
+	                			<tree editable="top">
+	                				<field name="column_name_product" size='150' />
+	                				<field name="column_number_file_import" size='10'/>
+	                				<field name="eval_function" />	                				
+	                			</tree>
+	                			<form>
+	                				<field name="column_name_product" size='150'/>
+	                				<field name="column_number_file_import" size='10'/>
+	                				<field name="eval_function" />	                				
+	                			</form>
+	                		</field>
+				  </page>
+			</notebook>
+
+		  </field>
+        </record>
+
+    
+    </data>
+ </openerp>

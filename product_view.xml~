@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+  
+        <record model="ir.ui.view" id="product_marchio_form">
+            <field name="name">product.marchio.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+                <field name="arch" type="xml">
+	                <notebook position="inside">        
+				  <page string="Persolanizzati">
+					<separator string="Dati Articolo" colspan="4" />				  
+					<field name="marchio_ids" select='2'/>
+					<field name="composizione" select='2'/>
+					<field name="formato" select='2'/>
+					<field name="tipologia" select='2'/>
+					<separator string="Confezionamento" colspan="4" />					
+					<field name="conf_collo_num_pezzi"/>
+					<field name="conf_collo_num_mq"/>
+					<field name="conf_collo_peso"/>
+					<field name="conf_pallet_num_colli"/>
+					<field name="conf_pallet_num_mq"/>
+					<separator string="Prezzi" colspan="4" />
+					<field name="lst_price" position="replace" />
+					<field name="standard_price" position="replace"/>					
+					<field name="categoria_prezzo"/>
+					<field name="prezzo_spallettizzato"/>					
+				  </page>
+			</notebook>
+
+		  </field>
+        </record>
+    
+    
+    </data>
+ </openerp>

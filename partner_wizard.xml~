@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <wizard id="res_partner_import_product" model="res.partner" name="import.product" string="Iporta Catalogo Articoli"/>
+
+        <!--
+		<wizard string="Check EAN13" model="res.partner" name="res.partner.ean13"/>
+		<wizard string="Clear IDs" model="res.partner" name="res.partner.clear_ids"/>
+		-->
+    </data>
+</openerp>
